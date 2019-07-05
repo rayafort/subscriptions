@@ -1,6 +1,6 @@
-# Rinvex Subscriptions
+# RayaFort Subscriptions
 
-**Rinvex Subscriptions** is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently. It's simple architecture, accompanied by powerful underlying to afford solid platform for your business.
+**RayaFort Subscriptions** is a flexible plans and subscription management system for Laravel, with the required tools to run your SAAS like services efficiently. It's simple architecture, accompanied by powerful underlying to afford solid platform for your business.
 
 [![Packagist](https://img.shields.io/packagist/v/rinvex/laravel-subscriptions.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/rinvex/laravel-subscriptions)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/rinvex/laravel-subscriptions.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/rinvex/laravel-subscriptions/)
@@ -39,12 +39,12 @@
 
 ### Add Subscriptions to User model
 
-**Rinvex Subscriptions** has been specially made for Eloquent and simplicity has been taken very serious as in any other Laravel related aspect. To add Subscription functionality to your User model just use the `\Rinvex\Subscriptions\Traits\HasSubscriptions` trait like this:
+**RayaFort Subscriptions** has been specially made for Eloquent and simplicity has been taken very serious as in any other Laravel related aspect. To add Subscription functionality to your User model just use the `\RayaFort\Subscriptions\Traits\HasSubscriptions` trait like this:
 
 ```php
 namespace App\Models;
 
-use Rinvex\Subscriptions\Traits\HasSubscriptions;
+use RayaFort\Subscriptions\Traits\HasSubscriptions;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
@@ -286,13 +286,13 @@ $subscriptions = app('rinvex.subscriptions.plan_subscription')->findEndedPeriod(
 
 ### Models
 
-**Rinvex Subscriptions** uses 4 models:
+**RayaFort Subscriptions** uses 4 models:
 
 ```php
-Rinvex\Subscriptions\Models\Plan;
-Rinvex\Subscriptions\Models\PlanFeature;
-Rinvex\Subscriptions\Models\PlanSubscription;
-Rinvex\Subscriptions\Models\PlanSubscriptionUsage;
+RayaFort\Subscriptions\Models\Plan;
+RayaFort\Subscriptions\Models\PlanFeature;
+RayaFort\Subscriptions\Models\PlanSubscription;
+RayaFort\Subscriptions\Models\PlanSubscriptionUsage;
 ```
 
 
@@ -328,13 +328,12 @@ Bug reports, feature requests, and pull requests are very welcome.
 If you discover a security vulnerability within this project, please send an e-mail to [help@rinvex.com](help@rinvex.com). All security vulnerabilities will be promptly addressed.
 
 
-## About Rinvex
+## About RayaFort
 
-Rinvex is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
+RayaFort is a software solutions startup, specialized in integrated enterprise solutions for SMEs established in Alexandria, Egypt since June 2016. We believe that our drive The Value, The Reach, and The Impact is what differentiates us and unleash the endless possibilities of our philosophy through the power of software. We like to call it Innovation At The Speed Of Life. That’s how we do our share of advancing humanity.
 
 
 ## License
 
 This software is released under [The MIT License (MIT)](LICENSE).
 
-(c) 2016-2019 Rinvex LLC, Some rights reserved.
