@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace rayafort\Subscriptions\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use rayafort\Cacheable\CacheableEloquent;
+use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
-use rayafort\Support\Traits\ValidatingTrait;
+use Rinvex\Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**

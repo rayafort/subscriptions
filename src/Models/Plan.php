@@ -5,12 +5,12 @@ declare(strict_types=1);
 namespace RayaFort\Subscriptions\Models;
 
 use Spatie\Sluggable\SlugOptions;
-use RayaFort\Support\Traits\HasSlug;
+use Rinvex\Support\Traits\HasSlug;
 use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
-use RayaFort\Cacheable\CacheableEloquent;
-use RayaFort\Support\Traits\HasTranslations;
-use RayaFort\Support\Traits\ValidatingTrait;
+use Rinvex\Cacheable\CacheableEloquent;
+use Rinvex\Support\Traits\HasTranslations;
+use Rinvex\Support\Traits\ValidatingTrait;
 use Spatie\EloquentSortable\SortableTrait;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 

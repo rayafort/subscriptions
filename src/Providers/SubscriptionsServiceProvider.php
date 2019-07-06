@@ -6,7 +6,7 @@ namespace RayaFort\Subscriptions\Providers;
 
 use RayaFort\Subscriptions\Models\Plan;
 use Illuminate\Support\ServiceProvider;
-use RayaFort\Support\Traits\ConsoleTools;
+use Rinvex\Support\Traits\ConsoleTools;
 use RayaFort\Subscriptions\Models\PlanFeature;
 use RayaFort\Subscriptions\Models\PlanSubscription;
 use RayaFort\Subscriptions\Models\PlanSubscriptionUsage;
