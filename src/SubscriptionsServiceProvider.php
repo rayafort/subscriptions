@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace RayaFort\Subscriptions\Providers;
+namespace RayaFort\Subscriptions;
 
 use RayaFort\Subscriptions\Models\Plan;
 use Illuminate\Support\ServiceProvider;
@@ -36,7 +36,7 @@ class SubscriptionsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'rayafort.subscriptions');
+        $this->mergeConfigFrom(realpath( __DIR__ . '/../../config/config.php' ), 'rayafort.subscriptions');
 
         // Bind eloquent models to IoC container
         $this->app->singleton('rayafort.subscriptions.plan', $planModel = $this->app['config']['rayafort.subscriptions.models.plan']);
@@ -63,7 +63,7 @@ class SubscriptionsServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Publish Resources
-        ! $this->app->runningInConsole() || $this->publishesConfig('rayafort/laravel-subscriptions');
-        ! $this->app->runningInConsole() || $this->publishesMigrations('rayafort/laravel-subscriptions');
+        ! $this->app->runningInConsole() || $this->publishesConfig('rayafort/subscriptions');
+        ! $this->app->runningInConsole() || $this->publishesMigrations('rayafort/subscriptions');
     }
 }
