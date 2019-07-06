@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace rayafort\Subscriptions\Models;
+namespace Rayafort\Subscriptions\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Rinvex\Cacheable\CacheableEloquent;
