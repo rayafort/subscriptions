@@ -60,7 +60,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "RayaFort\\Subscriptions\\Providers\\SubscriptionsServiceProvider"
+                "RayaFort\\Subscriptions\\SubscriptionsServiceProvider"
             ]
         }
     },
