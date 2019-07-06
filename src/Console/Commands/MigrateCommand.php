@@ -31,7 +31,7 @@ class MigrateCommand extends Command
     {
         $this->alert($this->description);
 
-        if (file_exists($path = 'database/migrations/rayafort/laravel-subscriptions')) {
+        if (file_exists($path = 'database/migrations/rayafort/subscriptions')) {
             $this->call('migrate', [
                 '--step' => true,
                 '--path' => $path,
