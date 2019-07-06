@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Subscriptions\Console\Commands;
+namespace RayaFort\Subscriptions\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class PublishCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'rinvex:publish:subscriptions {--force : Overwrite any existing files.} {--R|resource=all}';
+    protected $signature = 'rayafort:publish:subscriptions {--force : Overwrite any existing files.} {--R|resource=all}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Publish Rinvex Subscriptions Resources.';
+    protected $description = 'Publish Subscriptions Resources.';
 
     /**
      * Execute the console command.
@@ -33,14 +33,14 @@ class PublishCommand extends Command
 
         switch ($this->option('resource')) {
             case 'config':
-                $this->call('vendor:publish', ['--tag' => 'rinvex-subscriptions-config', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rayafort-subscriptions-config', '--force' => $this->option('force')]);
                 break;
             case 'migrations':
-                $this->call('vendor:publish', ['--tag' => 'rinvex-subscriptions-migrations', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rayafort-subscriptions-migrations', '--force' => $this->option('force')]);
                 break;
             default:
-                $this->call('vendor:publish', ['--tag' => 'rinvex-subscriptions-config', '--force' => $this->option('force')]);
-                $this->call('vendor:publish', ['--tag' => 'rinvex-subscriptions-migrations', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rayafort-subscriptions-config', '--force' => $this->option('force')]);
+                $this->call('vendor:publish', ['--tag' => 'rayafort-subscriptions-migrations', '--force' => $this->option('force')]);
                 break;
         }
 

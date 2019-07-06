@@ -1,5 +1,4 @@
 <?php
-
 declare(strict_types=1);
 
 return [
@@ -17,10 +16,10 @@ return [
     // Subscriptions Models
     'models' => [
 
-        'plan' => \Rinvex\Subscriptions\Models\Plan::class,
-        'plan_feature' => \Rinvex\Subscriptions\Models\PlanFeature::class,
-        'plan_subscription' => \Rinvex\Subscriptions\Models\PlanSubscription::class,
-        'plan_subscription_usage' => \Rinvex\Subscriptions\Models\PlanSubscriptionUsage::class,
+        'plan' => \RayaFort\Subscriptions\Models\Plan::class,
+        'plan_feature' => \RayaFort\Subscriptions\Models\PlanFeature::class,
+        'plan_subscription' => \RayaFort\Subscriptions\Models\PlanSubscription::class,
+        'plan_subscription_usage' => \RayaFort\Subscriptions\Models\PlanSubscriptionUsage::class,
 
     ],
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Subscriptions\Console\Commands;
+namespace RayaFort\Subscriptions\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -13,14 +13,14 @@ class MigrateCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'rinvex:migrate:subscriptions {--force : Force the operation to run when in production.}';
+    protected $signature = 'rayafort:migrate:subscriptions {--force : Force the operation to run when in production.}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Migrate Rinvex Subscriptions Tables.';
+    protected $description = 'Migrate Subscriptions Tables.';
 
     /**
      * Execute the console command.
@@ -31,14 +31,14 @@ class MigrateCommand extends Command
     {
         $this->alert($this->description);
 
-        if (file_exists($path = 'database/migrations/rinvex/laravel-subscriptions')) {
+        if (file_exists($path = 'database/migrations/rayafort/laravel-subscriptions')) {
             $this->call('migrate', [
                 '--step' => true,
                 '--path' => $path,
                 '--force' => $this->option('force'),
             ]);
         } else {
-            $this->warn('No migrations found! Consider publish them first: <fg=green>php artisan rinvex:publish:subscriptions</>');
+            $this->warn('No migrations found! Consider publish them first: <fg=green>php artisan rayafort:publish:subscriptions</>');
         }
 
         $this->line('');

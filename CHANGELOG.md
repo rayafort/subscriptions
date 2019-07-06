@@ -1,4 +1,4 @@
-# Rinvex Subscriptions Change Log
+# Subscriptions Change Log
 
 All notable changes to this project will be documented in this file.
 
@@ -13,14 +13,14 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 - Drop PHP 7.1 travis test
 - Refactor migrations and artisan commands, and tweak service provider publishes functionality
 - Fix wrong container binding:
-  - app('rinvex.subscriptions.plan_features') => app('rinvex.subscriptions.plan_feature')
-  - app('rinvex.subscriptions.plan_subscriptions') => app('rinvex.subscriptions.plan_subscription')
+  - app('rayafort.subscriptions.plan_features') => app('rayafort.subscriptions.plan_feature')
+  - app('rayafort.subscriptions.plan_subscriptions') => app('rayafort.subscriptions.plan_subscription')
 
 ## [v2.0.0] - 2019-03-03
 - Require PHP 7.2 & Laravel 5.8
 
 ## [v1.0.2] - 2018-12-30
-- Rinvex\Subscriptions\Services\Period: adding interval received as parameter in constructor to property ->interval
+- RayaFort\Subscriptions\Services\Period: adding interval received as parameter in constructor to property ->interval
 
 ## [v1.0.1] - 2018-12-22
 - Update composer dependencies
@@ -30,7 +30,7 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 ## [v1.0.0] - 2018-10-01
 - Enforce Consistency
 - Support Laravel 5.7+
-- Rename package to rinvex/laravel-subscriptions
+- Rename package to rayafort/laravel-subscriptions
 
 ## [v0.0.4] - 2018-09-21
 - Update travis php versions
@@ -69,17 +69,17 @@ This project adheres to [Semantic Versioning](CONTRIBUTING.md).
 
 ## [v0.0.2] - 2017-09-08
 - Fix many issues and apply many enhancements
-- Rename package rinvex/laravel-subscriptions from rinvex/subscribable
+- Rename package rayafort/laravel-subscriptions from rayafort/subscribable
 
 ## v0.0.1 - 2017-06-29
 - Tag first release
 
-[v2.1.1]: https://github.com/rinvex/laravel-subscriptions/compare/v2.1.0...v2.1.1
-[v2.1.0]: https://github.com/rinvex/laravel-subscriptions/compare/v2.0.0...v2.1.0
-[v2.0.0]: https://github.com/rinvex/laravel-subscriptions/compare/v1.0.2...v2.0.0
-[v1.0.2]: https://github.com/rinvex/laravel-subscriptions/compare/v1.0.1...v1.0.2
-[v1.0.1]: https://github.com/rinvex/laravel-subscriptions/compare/v1.0.0...v1.0.1
-[v1.0.0]: https://github.com/rinvex/laravel-subscriptions/compare/v0.0.4...v1.0.0
-[v0.0.4]: https://github.com/rinvex/laravel-subscriptions/compare/v0.0.3...v0.0.4
-[v0.0.3]: https://github.com/rinvex/laravel-subscriptions/compare/v0.0.2...v0.0.3
-[v0.0.2]: https://github.com/rinvex/laravel-subscriptions/compare/v0.0.1...v0.0.2
+[v2.1.1]: https://github.com/rayafort/laravel-subscriptions/compare/v2.1.0...v2.1.1
+[v2.1.0]: https://github.com/rayafort/laravel-subscriptions/compare/v2.0.0...v2.1.0
+[v2.0.0]: https://github.com/rayafort/laravel-subscriptions/compare/v1.0.2...v2.0.0
+[v1.0.2]: https://github.com/rayafort/laravel-subscriptions/compare/v1.0.1...v1.0.2
+[v1.0.1]: https://github.com/rayafort/laravel-subscriptions/compare/v1.0.0...v1.0.1
+[v1.0.0]: https://github.com/rayafort/laravel-subscriptions/compare/v0.0.4...v1.0.0
+[v0.0.4]: https://github.com/rayafort/laravel-subscriptions/compare/v0.0.3...v0.0.4
+[v0.0.3]: https://github.com/rayafort/laravel-subscriptions/compare/v0.0.2...v0.0.3
+[v0.0.2]: https://github.com/rayafort/laravel-subscriptions/compare/v0.0.1...v0.0.2

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Subscriptions\Traits;
+namespace RayaFort\Subscriptions\Traits;
 
-use Rinvex\Subscriptions\Models\Plan;
-use Rinvex\Subscriptions\Services\Period;
+use RayaFort\Subscriptions\Models\Plan;
+use RayaFort\Subscriptions\Services\Period;
 use Illuminate\Database\Eloquent\Collection;
-use Rinvex\Subscriptions\Models\PlanSubscription;
+use RayaFort\Subscriptions\Models\PlanSubscription;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 trait HasSubscriptions
@@ -32,7 +32,7 @@ trait HasSubscriptions
      */
     public function subscriptions(): MorphMany
     {
-        return $this->morphMany(config('rinvex.subscriptions.models.plan_subscription'), 'user');
+        return $this->morphMany(config('rayafort.subscriptions.models.plan_subscription'), 'user');
     }
 
     /**
@@ -50,7 +50,7 @@ trait HasSubscriptions
      *
      * @param string $subscriptionSlug
      *
-     * @return \Rinvex\Subscriptions\Models\PlanSubscription|null
+     * @return \RayaFort\Subscriptions\Models\PlanSubscription|null
      */
     public function subscription(string $subscriptionSlug): ?PlanSubscription
     {
@@ -60,13 +60,13 @@ trait HasSubscriptions
     /**
      * Get subscribed plans.
      *
-     * @return \Rinvex\Subscriptions\Models\PlanSubscription|null
+     * @return \RayaFort\Subscriptions\Models\PlanSubscription|null
      */
     public function subscribedPlans(): ?PlanSubscription
     {
         $planIds = $this->subscriptions->reject->inactive()->pluck('plan_id')->unique();
 
-        return app('rinvex.subscriptions.plan')->whereIn('id', $planIds)->get();
+        return app('rayafort.subscriptions.plan')->whereIn('id', $planIds)->get();
     }
 
     /**
@@ -87,9 +87,9 @@ trait HasSubscriptions
      * Subscribe user to a new plan.
      *
      * @param string                            $subscription
-     * @param \Rinvex\Subscriptions\Models\Plan $plan
+     * @param \RayaFort\Subscriptions\Models\Plan $plan
      *
-     * @return \Rinvex\Subscriptions\Models\PlanSubscription
+     * @return \RayaFort\Subscriptions\Models\PlanSubscription
      */
     public function newSubscription($subscription, Plan $plan): PlanSubscription
     {

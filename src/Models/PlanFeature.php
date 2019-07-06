@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Subscriptions\Models;
+namespace rayafort\Subscriptions\Models;
 
 use Carbon\Carbon;
 use Spatie\Sluggable\SlugOptions;
-use Rinvex\Support\Traits\HasSlug;
+use rayafort\Support\Traits\HasSlug;
 use Spatie\EloquentSortable\Sortable;
 use Illuminate\Database\Eloquent\Model;
-use Rinvex\Cacheable\CacheableEloquent;
-use Rinvex\Subscriptions\Services\Period;
-use Rinvex\Support\Traits\HasTranslations;
-use Rinvex\Support\Traits\ValidatingTrait;
+use rayafort\Cacheable\CacheableEloquent;
+use rayafort\Subscriptions\Services\Period;
+use rayafort\Support\Traits\HasTranslations;
+use rayafort\Support\Traits\ValidatingTrait;
 use Spatie\EloquentSortable\SortableTrait;
-use Rinvex\Subscriptions\Traits\BelongsToPlan;
+use rayafort\Subscriptions\Traits\BelongsToPlan;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * Rinvex\Subscriptions\Models\PlanFeature.
+ * rayafort\Subscriptions\Models\PlanFeature.
  *
  * @property int                                                                                                $id
  * @property int                                                                                                $plan_id
@@ -32,23 +32,23 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property \Carbon\Carbon|null                                                                                $created_at
  * @property \Carbon\Carbon|null                                                                                $updated_at
  * @property \Carbon\Carbon|null                                                                                $deleted_at
- * @property-read \Rinvex\Subscriptions\Models\Plan                                                             $plan
- * @property-read \Illuminate\Database\Eloquent\Collection|\Rinvex\Subscriptions\Models\PlanSubscriptionUsage[] $usage
+ * @property-read \rayafort\Subscriptions\Models\Plan                                                             $plan
+ * @property-read \Illuminate\Database\Eloquent\Collection|\rayafort\Subscriptions\Models\PlanSubscriptionUsage[] $usage
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature byPlanId($planId)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature ordered($direction = 'asc')
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature wherePlanId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereResettableInterval($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereResettablePeriod($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereSortOrder($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Subscriptions\Models\PlanFeature whereValue($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature byPlanId($planId)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature ordered($direction = 'asc')
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereDescription($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature wherePlanId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereResettableInterval($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereResettablePeriod($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereSlug($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereSortOrder($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\rayafort\Subscriptions\Models\PlanFeature whereValue($value)
  * @mixin \Eloquent
  */
 class PlanFeature extends Model implements Sortable
@@ -138,10 +138,10 @@ class PlanFeature extends Model implements Sortable
     {
         parent::__construct($attributes);
 
-        $this->setTable(config('rinvex.subscriptions.tables.plan_features'));
+        $this->setTable(config('rayafort.subscriptions.tables.plan_features'));
         $this->setRules([
-            'plan_id' => 'required|integer|exists:'.config('rinvex.subscriptions.tables.plans').',id',
-            'slug' => 'required|alpha_dash|max:150|unique:'.config('rinvex.subscriptions.tables.plan_features').',slug',
+            'plan_id' => 'required|integer|exists:'.config('rayafort.subscriptions.tables.plans').',id',
+            'slug' => 'required|alpha_dash|max:150|unique:'.config('rayafort.subscriptions.tables.plan_features').',slug',
             'name' => 'required|string|max:150',
             'description' => 'nullable|string|max:10000',
             'value' => 'required|string',
@@ -171,7 +171,7 @@ class PlanFeature extends Model implements Sortable
      */
     public function usage(): HasMany
     {
-        return $this->hasMany(config('rinvex.subscriptions.models.plan_subscription_usage'), 'feature_id', 'id');
+        return $this->hasMany(config('rayafort.subscriptions.models.plan_subscription_usage'), 'feature_id', 'id');
     }
 
     /**
