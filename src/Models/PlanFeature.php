@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rayafort\Subscriptions\Models;
 
 use Carbon\Carbon;
+use RayaFort\Subscriptions\Traits\BelongsToPlan;
 use Spatie\Sluggable\SlugOptions;
 use Rinvex\Support\Traits\HasSlug;
 use Spatie\EloquentSortable\Sortable;
@@ -14,11 +15,10 @@ use Rayafort\Subscriptions\Services\Period;
 use Rinvex\Support\Traits\HasTranslations;
 use Rinvex\Support\Traits\ValidatingTrait;
 use Spatie\EloquentSortable\SortableTrait;
-use Rayafort\Subscriptions\Traits\BelongsToPlan;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * rayafort\Subscriptions\Models\PlanFeature.
+ * Rayafort\Subscriptions\Models\PlanFeature.
  *
  * @property int                                                                                                $id
  * @property int                                                                                                $plan_id
