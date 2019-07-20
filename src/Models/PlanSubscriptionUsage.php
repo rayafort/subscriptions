@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rayafort\Subscriptions\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use RayaFort\Subscriptions\Traits\UsesUuidTrait;
 use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Rinvex\Support\Traits\ValidatingTrait;
@@ -13,8 +14,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 /**
  * rayafort\Subscriptions\Models\PlanSubscriptionUsage.
  *
- * @property int                                               $id
- * @property int                                               $subscription_id
+ * @property string                                            $id
+ * @property string                                            $subscription_id
  * @property int                                               $feature_id
  * @property int                                               $used
  * @property \Carbon\Carbon|null                               $valid_until
@@ -39,6 +40,7 @@ class PlanSubscriptionUsage extends Model
 {
     use ValidatingTrait;
     use CacheableEloquent;
+	use UsesUuidTrait;
 
     /**
      * {@inheritdoc}
@@ -54,7 +56,7 @@ class PlanSubscriptionUsage extends Model
      * {@inheritdoc}
      */
     protected $casts = [
-        'subscription_id' => 'integer',
+        'subscription_id' => 'string',
         'feature_id' => 'integer',
         'used' => 'integer',
         'valid_until' => 'datetime',
@@ -95,7 +97,7 @@ class PlanSubscriptionUsage extends Model
 
         $this->setTable(config('rayafort.subscriptions.tables.plan_subscription_usage'));
         $this->setRules([
-            'subscription_id' => 'required|integer|exists:'.config('rayafort.subscriptions.tables.plan_subscriptions').',id',
+            'subscription_id' => 'required|string|exists:'.config('rayafort.subscriptions.tables.plan_subscriptions').',id',
             'feature_id' => 'required|integer|exists:'.config('rayafort.subscriptions.tables.plan_features').',id',
             'used' => 'required|integer',
             'valid_until' => 'nullable|date',
