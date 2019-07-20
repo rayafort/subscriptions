@@ -5,24 +5,25 @@ declare(strict_types=1);
 namespace RayaFort\Subscriptions\Models;
 
 use DB;
-use LogicException;
-use Spatie\Sluggable\SlugOptions;
-use Rinvex\Support\Traits\HasSlug;
-use Illuminate\Database\Eloquent\Model;
-use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
-use RayaFort\Subscriptions\Services\Period;
-use Rinvex\Support\Traits\HasTranslations;
-use Rinvex\Support\Traits\ValidatingTrait;
-use RayaFort\Subscriptions\Traits\BelongsToPlan;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use LogicException;
+use RayaFort\Subscriptions\Services\Period;
+use RayaFort\Subscriptions\Traits\BelongsToPlan;
+use RayaFort\Subscriptions\Traits\UsesUuidTrait;
+use Rinvex\Cacheable\CacheableEloquent;
+use Rinvex\Support\Traits\HasSlug;
+use Rinvex\Support\Traits\HasTranslations;
+use Rinvex\Support\Traits\ValidatingTrait;
+use Spatie\Sluggable\SlugOptions;
 
 /**
  * RayaFort\Subscriptions\Models\PlanSubscription.
  *
- * @property int                                                                                                $id
- * @property int                                                                                                $user_id
+ * @property string                                                                                             $id
+ * @property string                                                                                             $user_id
  * @property string                                                                                             $user_type
  * @property int                                                                                                $plan_id
  * @property string                                                                                             $slug
@@ -70,6 +71,7 @@ class PlanSubscription extends Model
     use HasTranslations;
     use ValidatingTrait;
     use CacheableEloquent;
+    use UsesUuidTrait;
 
     /**
      * {@inheritdoc}
@@ -92,7 +94,7 @@ class PlanSubscription extends Model
      * {@inheritdoc}
      */
     protected $casts = [
-        'user_id' => 'integer',
+        'user_id' => 'string',
         'user_type' => 'string',
         'plan_id' => 'integer',
         'slug' => 'string',
@@ -152,7 +154,7 @@ class PlanSubscription extends Model
             'description' => 'nullable|string|max:10000',
             'slug' => 'required|alpha_dash|max:150|unique:'.config('rayafort.subscriptions.tables.plan_subscriptions').',slug',
             'plan_id' => 'required|integer|exists:'.config('rayafort.subscriptions.tables.plans').',id',
-            'user_id' => 'required|integer',
+            'user_id' => 'required|string',
             'user_type' => 'required|string',
             'trial_ends_at' => 'nullable|date',
             'starts_at' => 'required|date',
