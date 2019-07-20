@@ -24,6 +24,7 @@
         "illuminate/console": "~5.8.0",
         "illuminate/database": "~5.8.0",
         "illuminate/support": "~5.8.0",
+        "moontoast/math": "^1.1",
         "rinvex/laravel-cacheable": "^2.1.0",
         "rinvex/laravel-support": "^2.1.0",
         "spatie/eloquent-sortable": "^3.6.0",
