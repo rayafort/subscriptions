@@ -16,7 +16,7 @@ class CreatePlanSubscriptionUsageTable extends Migration
     {
         Schema::create(config('rayafort.subscriptions.tables.plan_subscription_usage'), function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('subscription_id')->unsigned();
+            $table->uuid('subscription_id');
             $table->integer('feature_id')->unsigned();
             $table->smallInteger('used')->unsigned();
             $table->dateTime('valid_until')->nullable();

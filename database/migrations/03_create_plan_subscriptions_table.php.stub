@@ -16,7 +16,11 @@ class CreatePlanSubscriptionsTable extends Migration
     {
         Schema::create(config('rayafort.subscriptions.tables.plan_subscriptions'), function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->morphs('user');
+
+	        $table->string("user_type");
+	        $table->uuid("user_id");
+	        $table->index(["user_type", "user_id"]);
+
             $table->integer('plan_id')->unsigned();
             $table->string('slug');
             $table->{$this->jsonable()}('name');
