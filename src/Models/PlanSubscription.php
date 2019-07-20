@@ -7,7 +7,7 @@ namespace RayaFort\Subscriptions\Models;
 use DB;
 use LogicException;
 use Spatie\Sluggable\SlugOptions;
-use RayaFort\Support\Traits\HasSlug;
+use Rinvex\Support\Traits\HasSlug;
 use Illuminate\Database\Eloquent\Model;
 use Rinvex\Cacheable\CacheableEloquent;
 use Illuminate\Database\Eloquent\Builder;
