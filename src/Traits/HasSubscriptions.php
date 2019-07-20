@@ -45,16 +45,18 @@ trait HasSubscriptions
         return $this->subscriptions->reject->inactive();
     }
 
-    /**
-     * Get a subscription by name.
-     *
-     * @param string $subscriptionName
-     *
-     * @return \RayaFort\Subscriptions\Models\PlanSubscription|null
-     */
-    public function subscription(string $subscriptionName): ?PlanSubscription
+	/**
+	 * Get a subscription by name.
+	 *
+	 * @param string $subscriptionName
+	 *
+	 * @param string $language
+	 *
+	 * @return \RayaFort\Subscriptions\Models\PlanSubscription|null
+	 */
+    public function subscription(string $subscriptionName, $language = 'en'): ?PlanSubscription
     {
-        return $this->subscriptions()->where('name', $subscriptionName)->first();
+        return $this->subscriptions()->where("name->{$language}", $subscriptionName)->first();
     }
 
     /**
